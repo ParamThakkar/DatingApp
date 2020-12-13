@@ -28,7 +28,8 @@ namespace API.Controllers
         [Authorize]
         public async Task<ActionResult<AppUser>> GetUser(int id)
         {
-            return await _context.Users.Where(x=>x.Id == id).FirstOrDefaultAsync();
+            var user = await _context.Users.Where(x=>x.Id == id).FirstOrDefaultAsync();
+            return user;
         }
     }
 }
